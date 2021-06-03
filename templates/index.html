@@ -2,7 +2,8 @@
 {% load static %}
 <html lang="ko">
 	{% include 'head.html' %}
-	<body class="homepage is-preload">
+
+	<body class="homepage is-preload" style="background: gray;">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -28,7 +29,15 @@
 								<li><a href="#footer">NEWS</a></li>
 								<li><a href="#contacts">CONTACTS</a></li>
 								<li style="color: #ffd700"><a href="#contacts">SIGNUP</a></li>
-								<li style="color: #ffd700"><a href="#contacts">LOGIN</a></li>
+								{% if not user.is_authenticated %}
+								<a href="{% url 'accountapp:login' %}?next={{ request.path }}">
+									<li style="color: #ffd700"><a href="#contacts">LOGIN</a></li>
+								</a>
+								{% else %}
+								<a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
+									<li style="color: #ffd700"><a href="#contacts">LOGOUT</a></li>
+								</a>
+								{% endif %}
 							</ul>
 						</nav>
 
@@ -57,7 +66,7 @@
 								<p>울산과학기술원 학생창업지원프로그램에 4회 연속 선정되었습니다.</p>
 								<p>2019.06. ~ 2021.03.</p>
 							</div>
-							
+
 						</article>
 
 						<article>
@@ -188,7 +197,7 @@
 				<div class="wrapper style2">
 
 					<article id="main" class="container special">
-						<a class="image featured" style="display: flex; justify-content: center; height: 40rem;">
+						<a class="image featured" id="player">
 							<iframe width="100%" height="100%" style="display: flex; margin-top: 3rem;" src="https://www.youtube.com/embed/C3fjHDUZ8m8" frameborder="0"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 							</iframe>
@@ -196,14 +205,14 @@
 						<header>
 							<h2><a href="">Who we are ?</a></h2>
 							<p>
-								OCONNECT는 무심코 지나친 가치를 새로이 발견하고 우리의 삶과 연결하는 <br>사회적 기업이 되기 위해 
+								OCONNECT는 무심코 지나친 가치를 새로이 발견하고 우리의 삶과 연결하는 <br>사회적 기업이 되기 위해
 								노력합니다.
 							</p>
 						</header>
 						<p>
-							현재 OCONNECT 에서는 어디서든, 어떻게든 꽂히는 콘센트인 <strong>‘원스탭(One-step)’</strong>을 개발 중에 있습니다. 
+							현재 OCONNECT 에서는 어디서든, 어떻게든 꽂히는 콘센트인 <strong>‘원스탭(One-step)’</strong>을 개발 중에 있습니다.
 							그동안 수많은 대회와 엑셀러레이팅 프로그램에 참여하며 제품을 발전시켜왔고, 시장에 제품 첫 출시와 와디즈 크라우드펀딩을 앞두고 있습니다.
-							OCONNECT에서는 무심코 지나친 가치를 새로이 발견해 우리의 삶과 연결하는 데에 주안점을 갖고 활동합니다. 누구나 공감하지만 쉽게 지나쳐온 수많은 불편, 
+							OCONNECT에서는 무심코 지나친 가치를 새로이 발견해 우리의 삶과 연결하는 데에 주안점을 갖고 활동합니다. 누구나 공감하지만 쉽게 지나쳐온 수많은 불편,
 							그리고 소외된 사람들이 겪어온 불편을 해소할 새로운 제품들을 만들겠다는 의지를 갖고 목표를 향해 달려가고 있습니다.
 						</p>
 						<footer>
@@ -318,7 +327,7 @@
 								</section>
 
 						</div>
-						<hr />
+						<hr style="margin-bottom: 3rem;"/>
 						<div class="row">
 							<div class="col-12">
 

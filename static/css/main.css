@@ -83,7 +83,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: gray;
+		background-color: gray;
 		color: #0f0e0e;
 		font-size: 15pt;
 		line-height: 1.85em;
@@ -3135,4 +3135,33 @@ input, select, textarea {
 						margin-bottom: 2em;
 					}
 
+	}
+
+
+    #player {
+        display: flex;
+        justify-content: center;
+        height: 40rem;
+    }
+
+
+	@media screen and (max-width: 991px) {
+	    #player {
+	        height: 30rem;
+	    }
+	}
+
+	@media screen and (max-width: 736px) {
+	    #player {
+	        height: 20rem;
+	    }
+	    #main > header {
+	        margin-top: 4rem;
+	    }
+	}
+
+	@media screen and (max-width: 414px) {
+	    #player {
+	        height: 15rem;
+	    }
 	}

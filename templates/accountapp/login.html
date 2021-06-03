@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 {% include 'head.html' %}
-<body>
+<body style="background: gray">
     <div class="login-form">
         <form method="post" class="post-form" action="{% url 'accountapp:login' %}">
             {% csrf_token %}

@@ -14,13 +14,13 @@ class NewsCreateView(CreateView):
     template_name = 'newsapp/create.html'
 
     def form_valid(self, form):
-        temp_team = form.save(commit=False)
-        temp_team.writer = self.request.user
-        temp_team.save()
+        temp_news = form.save(commit=False)
+        temp_news.writer = self.request.user
+        temp_news.save()
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('', kwargs={'pk':self.object.pk}) # 홈 연결 후 수정할 것
+        return reverse('newsapp:home') # 홈 연결 후 수정할 것
 
 
 class NewsUpdateView(UpdateView):

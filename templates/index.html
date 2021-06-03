@@ -28,16 +28,18 @@
 								<li><a href="#product">PRODUCTS</a></li>
 								<li><a href="#footer">NEWS</a></li>
 								<li><a href="#contacts">CONTACTS</a></li>
-								<li style="color: #ffd700"><a href="#contacts">SIGNUP</a></li>
+								<li style="color: #ffd700"><a href="{% url 'accountapp:create' %}">SIGNUP</a></li>
+
 								{% if not user.is_authenticated %}
-								<a href="{% url 'accountapp:login' %}?next={{ request.path }}">
-									<li style="color: #ffd700"><a href="#contacts">LOGIN</a></li>
-								</a>
+
+								<li style="color: #ffd700"><a href="{% url 'accountapp:login' %}?next={{ request.path }}">LOGIN</a></li>
+
 								{% else %}
-								<a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
-									<li style="color: #ffd700"><a href="#contacts">LOGOUT</a></li>
-								</a>
+
+								<li style="color: #ffd700"><a href="{% url 'accountapp:logout' %}?next={{ request.path }}">LOGOUT</a></li>
+
 								{% endif %}
+
 							</ul>
 						</nav>
 

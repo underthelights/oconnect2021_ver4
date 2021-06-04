@@ -30,7 +30,7 @@ class NewsUpdateView(UpdateView):
     template_name = 'newsapp/update.html'
 
     def get_success_url(self):
-        return reverse('newsapp:home', kwargs={'pk': self.object.pk})
+        return reverse('newsapp:home')
 
 
 class NewsDeleteView(DeleteView):

@@ -5,7 +5,7 @@
 </head>
 <body>
     <form method="post" class="container p-5 shadow" style="margin-top: 150px; margin-bottom: 1rem; background:white;"
-          action="{% url 'newsapp:update' %}" enctype="multipart/form-data">
+          action="{% url 'newsapp:update' pk=target_news.pk %}" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="">
             <h1><strong>뉴스 수정하기</strong></h1>

@@ -19,10 +19,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=70, null=True, verbose_name='TITLE')),
-                ('image', models.ImageField(null=True, upload_to='team/')),
+                ('image', models.ImageField(null=True, upload_to='news/')),
                 ('create_dt', models.DateTimeField(auto_now_add=True, null=True, verbose_name='CREATE DATE')),
                 ('modify_dt', models.DateTimeField(auto_now=True, null=True, verbose_name='MODIFY DATE')),
-                ('writer', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='team', to=settings.AUTH_USER_MODEL)),
+                ('writer', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='news', to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]

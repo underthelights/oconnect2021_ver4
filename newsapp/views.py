@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView, ListView
 
 from newsapp.forms import NewsCreationForm
 from newsapp.models import News
@@ -40,3 +40,8 @@ class NewsDeleteView(DeleteView):
 
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)
+
+class NewsListView(ListView):
+    model = News
+    context_object_name = 'news_list'
+    template_name = 'index.html'

@@ -7,9 +7,9 @@ from django.db import models
 
 
 class News(models.Model):
-    writer = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='team', null=True)
+    writer = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='news', null=True)
     title = models.CharField(verbose_name='TITLE', max_length=70, null=True)
-    image = models.ImageField(upload_to='team/', null=True)
+    image = models.ImageField(upload_to='news/', null=True)
     create_dt = models.DateTimeField('CREATE DATE', auto_now_add=True, null=True)
     modify_dt = models.DateTimeField('MODIFY DATE', auto_now=True, null=True)
 

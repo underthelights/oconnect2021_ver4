@@ -6,4 +6,4 @@ from newsapp.models import News
 class NewsCreationForm(ModelForm):
     class Meta:
         model = News
-        fields = ['title', 'image']
+        fields = ['title', 'image', 'link']

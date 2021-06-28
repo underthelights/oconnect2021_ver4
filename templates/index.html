@@ -7,10 +7,13 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<div id="header" style="background-image: url({% static 'images/header2.png' %})">
+				<div id="header" style="background-image: url({% static 'images/temp/red.jpg' %})">
 					<!-- Inner -->
 						<div class="inner">
 							<header>
+								<div class="mb-5">
+									<img src="{% static 'images/logo192x192.svg' %}" alt="logo" width="130">
+								</div>
 								<h1><a href="{% url 'newsapp:home' %}" id="logo"><span style="color: #ffd700">O</span>CONNECT</a></h1>
 								<hr />
 								<strong style="color: white;">Connect us, Connect World</strong>
@@ -24,10 +27,10 @@
 						<nav id="nav">
 							<ul>
 								<li><a href="{% url 'newsapp:home'%}">HOME</a></li>
-								<li><a href="#banner">STORY</a></li>
-								<li><a href="#product">PRODUCTS</a></li>
-								<li><a href="#footer">NEWS</a></li>
-								<li><a href="#contacts">CONTACTS</a></li>
+								<li><a href="#banner" class="scrolly">STORY</a></li>
+								<li><a href="#product" class="scrolly">PRODUCTS</a></li>
+								<li><a href="#footer" class="scrolly">NEWS</a></li>
+								<li><a href="#contacts" class="scrolly">CONTACTS</a></li>
 							<!--<li style="color: #ffd700"><a href="{% url 'accountapp:create' %}">SIGNUP</a></li>-->
 
 								{% if not user.is_authenticated %}
@@ -307,13 +310,14 @@
 									<header>
 										<h2 class="icon solid fa-camera circled"><span class="label">Photos</span></h2>
 									</header>
-									<div class="row gtr-25">
+									<div id="card-container">
 										{% if news_list %}
 										{% for list in news_list %}
-										<div class="col-6">
-											<a href="#" class="image fit"><img src="{{list.image.url}}" alt="" /></a>
+										<div style="width: 15rem;">
+											<a class="image fit"><img src="{{list.image.url}}" class="rounded-3" /></a>
 										</div>
 										{% endfor%}
+										<script src="{% static 'js/magicgrid.js' %}"></script>
 										{% endif%}
 
 									</div>
@@ -352,7 +356,6 @@
 						</div>
 					</div>
 				</div>
-
 		</div>
 
 	<!-- Scripts -->
